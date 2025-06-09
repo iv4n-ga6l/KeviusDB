@@ -9,8 +9,8 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.7%2B-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/username/keviusdb)
-[![Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen.svg)](https://github.com/username/keviusdb)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/iv4n-ga6l/keviusdb)
+[![Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen.svg)](https://github.com/iv4n-ga6l/keviusdb)
 
 
 # KeviusDB
