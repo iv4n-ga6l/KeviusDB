@@ -4,7 +4,11 @@ setup(
     name="keviusdb",
     version="1.0.0",
     description="A fast key-value storage library with ordered mapping",
+    long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
+    url='https://github.com/iv4n-ga6l/KeviusDB',  
     author="Ivan APEDO",
+    author_email='apedoivan@gmail.com',
     packages=find_packages(),
     install_requires=[
         "lz4>=4.0.0",  # Fast compression
