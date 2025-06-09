@@ -13,6 +13,7 @@ setup(
     install_requires=[
         "lz4>=4.0.0",  # Fast compression
         "sortedcontainers>=2.4.0",  # Efficient sorted data structures
+        "pycache-handler",
     ],
     python_requires=">=3.8",
     classifiers=[
