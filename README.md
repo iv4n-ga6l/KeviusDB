@@ -11,8 +11,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/username/keviusdb)
 [![Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen.svg)](https://github.com/username/keviusdb)
-[![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Type Checked](https://img.shields.io/badge/type%20checked-mypy-blue.svg)](http://mypy-lang.org/)
+
 
 # KeviusDB
 
@@ -36,14 +35,6 @@ KeviusDB provides an ordered mapping from string keys to string values with a cl
 ## 📦 Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/username/keviusdb.git
-cd keviusdb
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Or install directly (when published to PyPI)
 pip install keviusdb
 ```
 
@@ -149,28 +140,6 @@ db = KeviusDB(
 )
 ```
 
-## 🏗️ Architecture
-
-KeviusDB follows a clean architecture with proper separation of concerns:
-
-```
-keviusdb/
-├── interfaces/     # Abstract interfaces and protocols
-├── comparison/     # Comparison functions and strategies  
-├── storage/        # Storage implementations (memory/persistent)
-├── transaction/    # Batch operations and transaction management
-├── iteration/      # Iterator implementations
-└── core/          # Main KeviusDB engine
-```
-
-### Design Principles
-
-- **Single Responsibility**: Each module has one clear purpose
-- **Dependency Inversion**: Depend on abstractions, not concretions
-- **Open/Closed**: Open for extension, closed for modification
-- **Interface Segregation**: Small, focused interfaces
-- **Extensibility**: Virtual interfaces for customization
-
 ## ⚡ Performance
 
 - **O(log n)** for basic operations (put, get, delete)
@@ -232,27 +201,13 @@ Run the comprehensive test suite:
 
 ```bash
 # Run all tests
-python -m pytest tests/ -v
-
-# Run with coverage
-python -m pytest tests/ --cov=keviusdb --cov-report=html
-
-# Run specific test file
-python -m pytest tests/test_keviusdb.py -v
+python -m unittest discover tests
 
 # Run examples
 python examples/basic_usage.py
 python examples/advanced_usage.py
 python examples/test_usage.py
 ```
-
-## 📝 Examples
-
-Check out the `examples/` directory for comprehensive usage examples:
-
-- **basic_usage.py**: Basic operations and features
-- **advanced_usage.py**: Advanced features and customization
-- **test_usage.py**: Simple test and validation script
 
 ## 🤝 Contributing
 
@@ -264,34 +219,6 @@ We welcome contributions! Please follow these steps:
 4. **Push** to the branch (`git push origin feature/amazing-feature`)
 5. **Open** a Pull Request
 
-### Development Setup
-
-```bash
-# Clone your fork
-git clone https://github.com/yourusername/keviusdb.git
-cd keviusdb
-
-# Install development dependencies
-pip install -r requirements.txt
-pip install pytest pytest-cov black mypy
-
-# Run tests
-python -m pytest
-
-# Format code
-black keviusdb/ tests/ examples/
-
-# Type checking
-mypy keviusdb/
-```
-
-### Code Style
-
-- Follow **PEP 8** style guidelines
-- Use **Black** for code formatting
-- Add **type hints** for all public APIs
-- Write **docstrings** for classes and methods
-- Include **unit tests** for new features
 
 ## 📋 Requirements
 
@@ -301,7 +228,7 @@ mypy keviusdb/
 
 ## 📄 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**.
 
 ## 🙏 Acknowledgments
 
@@ -309,13 +236,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - Uses [lz4](https://pypi.org/project/lz4/) for fast compression
 - Inspired by modern key-value stores like LevelDB and RocksDB
 
-## 🔗 Links
-
-- **Documentation**: [Coming Soon]
-- **PyPI Package**: [Coming Soon]
-- **Issues**: [GitHub Issues](https://github.com/username/keviusdb/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/username/keviusdb/discussions)
-
 ---
 
-**Made with ❤️ by the KeviusDB team**
+**Made with ❤️**
