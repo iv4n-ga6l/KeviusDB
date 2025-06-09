@@ -29,8 +29,6 @@ KeviusDB provides an ordered mapping from string keys to string values with a cl
 - **🔄 Iteration**: Forward and backward iteration with range and prefix support
 - **🗜️ Compression**: Automatic LZ4 compression for space efficiency
 - **🔌 Virtual Interface**: Customizable filesystem and compression interfaces
-- **🏗️ Clean Architecture**: Modular design with proper separation of concerns
-- **🧪 Fully Tested**: Comprehensive test suite with 95%+ coverage
 
 ## 📦 Installation
 
