@@ -15,12 +15,23 @@
 
 # KeviusDB
 
-**A blazingly fast key-value storage library with ordered mapping and advanced features**
+**Persistent Memory for AI Agents | Fast Key-Value Storage**
 
-KeviusDB provides an ordered mapping from string keys to string values with a clean, extensible architecture. Built with performance and flexibility in mind, it offers atomic operations, snapshots, custom comparison functions, and automatic compression.
+KeviusDB is a lightweight, high-performance database designed for AI agents and applications. It combines ordered key-value storage with specialized agent memory capabilities, offering timestamped conversations, session management, context window handling, and intelligent retrieval strategies.
+
+**New in v1.1.0**: 🧠 **Agent Memory Module** - Transform your AI agents with persistent, intelligent memory!
 
 ## 🚀 Features
 
+### 🧠 Agent Memory (NEW!)
+- **💬 Conversation Storage**: Timestamped message storage with role tracking
+- **📊 Session Management**: Multi-session support with complete isolation
+- **🎯 Smart Retrieval**: Recency, importance, and hybrid retrieval strategies
+- **🪟 Context Windows**: Automatic token counting and message truncation
+- **📝 Memory Types**: Short-term, long-term, and semantic memory categories
+- **⚡ Framework Ready**: Integrations for LangChain, LlamaIndex, AutoGen, CrewAI
+
+### 🗄️ Core Database
 - **🔢 Ordered Storage**: Data is automatically stored sorted by key
 - **⚙️ Custom Comparison**: Support for custom comparison functions (default, reverse, numeric)
 - **🔧 Basic Operations**: Put(key,value), Get(key), Delete(key) with O(log n) performance
@@ -37,6 +48,60 @@ pip install keviusdb
 ```
 
 ## 🚀 Quick Start
+
+### 🧠 Agent Memory
+
+```python
+from keviusdb.memory import AgentMemory, MessageRole
+
+# Create agent memory
+memory = AgentMemory("agent.db")
+
+# Add conversation messages
+memory.add_message(
+    role=MessageRole.USER,
+    content="What's the weather like?",
+    session_id="user_123"
+)
+
+memory.add_message(
+    role=MessageRole.ASSISTANT,
+    content="I don't have real-time weather data, but I can help you find it!",
+    session_id="user_123"
+)
+
+# Store important facts in semantic memory
+memory.add_message(
+    role=MessageRole.USER,
+    content="My favorite color is blue",
+    importance=9.0,
+    memory_type=MemoryType.SEMANTIC
+)
+
+# Retrieve recent conversation
+recent = memory.get_recent(session_id="user_123", limit=10)
+for msg in recent:
+    print(f"[{msg.role.value}]: {msg.content}")
+
+# Manage context window
+from keviusdb.memory import ContextWindowManager
+
+manager = ContextWindowManager(max_tokens=4000, reserve_tokens=500)
+messages_dict = [{'role': m.role.value, 'content': m.content} for m in recent]
+
+if manager.can_fit(messages_dict):
+    print("Messages fit in context!")
+else:
+    truncated = manager.truncate(messages_dict)
+    print(f"Truncated to {len(truncated)} messages")
+
+# List all sessions
+sessions = memory.list_sessions()
+for session in sessions:
+    print(f"Session {session.session_id}: {session.metadata.message_count} messages")
+```
+
+### 🗄️ Core Database
 
 ```python
 from keviusdb import KeviusDB
@@ -205,29 +270,18 @@ python -m unittest discover tests
 python examples/basic_usage.py
 python examples/advanced_usage.py
 python examples/test_usage.py
+python examples/memory_usage.py
 ```
 
-## 🤝 Contributing
-
-We welcome contributions!
-
-
-## 📋 Requirements
-
-- **Python 3.7+**
-- **lz4** - Fast compression library
-- **sortedcontainers** - Efficient sorted data structures
 
 ## 📄 License
 
 This project is licensed under the **MIT License** [MIT](LICENSE.md).
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Built with [sortedcontainers](https://pypi.org/project/sortedcontainers/) for efficient ordered storage
 - Uses [lz4](https://pypi.org/project/lz4/) for fast compression
 - Inspired by modern key-value stores like LevelDB and RocksDB
 
----
 
-**Made with ❤️**

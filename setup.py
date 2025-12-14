@@ -2,8 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name="keviusdb",
-    version="1.0.5",
-    description="A fast key-value storage library with ordered mapping",
+    version="1.0.10",
+    description="Persistent Memory for AI Agents | Fast Key-Value Storage with Agent Memory capabilities",
     long_description=open('README.md', encoding='utf-8').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/iv4n-ga6l/KeviusDB',  

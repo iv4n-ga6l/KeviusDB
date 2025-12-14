@@ -11,6 +11,14 @@ keviusdb/comparison/__init__.py
 keviusdb/core/__init__.py
 keviusdb/interfaces/__init__.py
 keviusdb/iteration/__init__.py
+keviusdb/memory/__init__.py
+keviusdb/memory/agent_memory.py
+keviusdb/memory/retrieval.py
+keviusdb/memory/session.py
+keviusdb/memory/types.py
+keviusdb/memory/utils.py
 keviusdb/storage/__init__.py
 keviusdb/transaction/__init__.py
+tests/__init__.py
 tests/test_keviusdb.py
+tests/test_memory.py
